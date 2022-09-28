@@ -1,22 +1,56 @@
-import { IsEmail, IsString, Length } from 'class-validator';
+import { IsEmail, IsString, IsArray, IsBoolean, IsDate } from 'class-validator';
 
 export class CreateUserDto {
-  @IsString()
-  @Length(4, 20)
-  public username: string;
-
   @IsEmail()
   public email: string;
 
   @IsString()
-  @Length(8, 20)
   public password: string;
 }
 
-export class LoginUserDto {
+export class UpdateUserDto {
+  @IsString()
+  public _id: string;
+
   @IsEmail()
   public email: string;
 
   @IsString()
   public password: string;
+
+  @IsString()
+  public username: string;
+
+  @IsString()
+  public fullname: string;
+
+  @IsArray()
+  public role: number[];
+
+  @IsString()
+  public profilePictureURI: string;
+
+  @IsBoolean()
+  public disabled: boolean;
+
+  @IsBoolean()
+  public useSSO: boolean;
+
+  @IsString()
+  public key: string;
+
+  @IsString()
+  public secret: string;
+
+  @IsString()
+  public mobile: string;
+
+  @IsBoolean()
+  public twoFA: boolean;
+
+  @IsDate()
+  public lastActive: Date;
+
+  @IsDate()
+  public deletedAt: Date;
 }
