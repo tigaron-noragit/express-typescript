@@ -8,6 +8,22 @@ class IndexController {
       next(error);
     }
   };
+
+  public login = (req: Request, res: Response, next: NextFunction) => {
+    try {
+      next();
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  public logincb = (req: Request, res: Response, next: NextFunction) => {
+    try {
+      res.send(req.user);
+    } catch (error) {
+      next(error);
+    }
+  };
 }
 
 export default IndexController;
